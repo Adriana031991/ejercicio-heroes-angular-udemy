@@ -1,0 +1,59 @@
+<mat-sidenav-container fullscreen>
+
+  <!-- referencia local sidenav -->
+  <mat-sidenav #sidenav mode="push">
+
+    <mat-toolbar>
+      <span>menu</span>
+    <!-- espaciador que separa los dos botones -->
+      <span class="spacer"></span>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a routerLink= "./listado"
+          mat-list-item
+          (click)="sidenav.toggle()">
+          <mat-icon mat-list-icon>label</mat-icon>
+        <span>Listado de Heroes</span>
+      </a>
+
+      <a routerLink= "./agregar"
+          mat-list-item
+          (click)="sidenav.toggle()">
+          <mat-icon mat-list-icon>add</mat-icon>
+        <span>Añadir Heroes</span>
+      </a>
+
+      <a routerLink= "./buscar"
+          mat-list-item
+          (click)="sidenav.toggle()">
+          <mat-icon mat-list-icon>search</mat-icon>
+        <span>Buscar Heroes</span>
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <!-- <mat-sidenav position="end">End</mat-sidenav> -->
+
+  <!-- con la referencia lical sidenav se habilita la opcion toggle que permite abrir el menu de la izquierda oprimiendo el botton de menu -->
+
+  <mat-toolbar >
+    <button mat-icon-button
+      (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- espaciador que separa los dos botones -->
+      <span class="spacer"></span>
+
+    <button mat-button>Logout</button>
+  </mat-toolbar>
+
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+
+</mat-sidenav-container>
+
+
