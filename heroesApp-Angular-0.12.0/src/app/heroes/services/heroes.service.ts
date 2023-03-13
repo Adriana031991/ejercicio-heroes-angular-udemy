@@ -27,6 +27,17 @@ private URI: string = environment.uri
 
   getSugerencias( termino: String ):Observable<Heroe[]>{
     return this.http.get<Heroe[]>(`${this.URI}/heroes/?q=${ termino }&limit=6`)
+  }
 
+  agregarHeroe( heroe: Heroe):Observable<Heroe> {
+    return this.http.post<Heroe>(`${this.URI}/heroes`, heroe);
+  }
+
+  actualizarHeroe( heroe: Heroe):Observable<Heroe> {
+    return this.http.put<Heroe>(`${this.URI}/heroes/${heroe.id}`, heroe);
+  }
+
+  borrarHeroe( id: string):Observable<any> {
+    return this.http.delete<any>(`${this.URI}/heroes/${id}`);
   }
 }
